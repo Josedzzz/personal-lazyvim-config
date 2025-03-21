@@ -3,30 +3,32 @@ return {
   opts = {
     servers = {
       tailwindcss = {},
-      denols = {
-        root_dir = function(fname)
-          local deno_root = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(fname)
-          local node_root = require("lspconfig").util.root_pattern("package.json")(fname)
-
-          if deno_root and not node_root then
-            return deno_root
-          end
-        end,
-        init_options = {
-          lint = true,
-          unstable = true,
-        },
-      },
-      tsserver = {
-        root_dir = function(fname)
-          local node_root = require("lspconfig").util.root_pattern("package.json")(fname)
-          local deno_root = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(fname)
-
-          if node_root and not deno_root then
-            return node_root
-          end
-        end,
-      },
     },
   },
+  config = function()
+    local lspconfig = require("lspconfig")
+
+    -- Configure denols for Deno projects
+    lspconfig.denols.setup({
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+      init_options = {
+        lint = true,
+        unstable = true,
+        enable = true,
+      },
+    })
+
+    -- Configure tsserver for Node.js/TypeScript projects
+    lspconfig.tsserver.setup({
+      root_dir = lspconfig.util.root_pattern("package.json"),
+      -- Disable tsserver if deno.json is present
+      on_attach = function(client, bufnr)
+        local deno_root = lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd())
+        if deno_root then
+          client.stop() -- Stop tsserver if this is a Deno project
+          return
+        end
+      end,
+    })
+  end,
 }
