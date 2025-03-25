@@ -10,11 +10,12 @@ return {
     }
     vim.g.vimwiki_global_ext = 0 -- Disable automatic file extension recognition
 
-    -- Prevent Treesitter from trying to parse VimWiki files
+    -- Make sure VimWiki files are treated as markdown
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "vimwiki",
       callback = function()
-        vim.treesitter.stop()
+        vim.bo.filetype = "markdown"
+        vim.treesitter.language.register("markdown", "vimwiki") -- Treat vimwiki as markdown
       end,
     })
   end,
