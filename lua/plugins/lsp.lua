@@ -3,14 +3,24 @@ return {
   opts = {
     servers = {
       tailwindcss = {},
-      clangd = { -- C++ LSP
-        cmd = { "clangd", "--background-index", "--clang-tidy" },
-        filetypes = { "c", "cpp", "objc", "objcpp" },
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", ".git")(fname)
-            or vim.fn.getcwd()
-        end,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
+        },
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--fallback-style=llvm",
+        },
+        init_options = {
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
+        },
       },
     },
   },
