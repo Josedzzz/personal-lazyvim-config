@@ -54,9 +54,26 @@ return {
       vim.cmd("colorscheme kanagawa-dragon")
 
       -- Set transparent background
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+      local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
+      for _, group in ipairs(hl_groups) do
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
+      end
+
+      -- Sidebar transparency (for NvimTree, Telescope, NeoTree, etc.)
+      local sidebar_groups = { "NormalNC", "TelescopeNormal", "NvimTreeNormal", "NeoTreeNormal" }
+      for _, group in ipairs(sidebar_groups) do
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
+      end
+
+      -- Fix LSP popups (make them transparent or black)
+      vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" }) -- Autocomplete menu
+      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#1a1a1a" }) -- Selected item (dark gray)
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" }) -- Borders of floating windows
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) -- Floating windows (LSP, etc.)
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "none" }) -- LSP Hints
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "none" }) -- LSP Errors
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "none" }) -- LSP Warnings
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none" }) -- LSP Info
     end,
   },
 }
