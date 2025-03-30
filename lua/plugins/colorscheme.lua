@@ -74,6 +74,10 @@ return {
       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "none" }) -- LSP Errors
       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "none" }) -- LSP Warnings
       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none" }) -- LSP Info
+
+      -- Make line numbers transparent
+      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" }) -- Normal line numbers
+      vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none", fg = "#ff9e64" }) -- Highlight current line number (optional: set a color)
     end,
   },
 }
