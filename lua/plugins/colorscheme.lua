@@ -20,64 +20,64 @@
 --  end,
 -- }
 
--- return {
---   {
---     "catppuccin/nvim",
---     name = "catppuccin",
---     lazy = false,
---     opts = {
---       flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
---       transparent_background = true, -- Enables transparency
---       integrations = {
---         cmp = true,
---         gitsigns = true,
---         nvimtree = true,
---         telescope = true,
---        notify = false,
---          mini = false,
---       },
---     },
---   },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "catppuccin",
---     },
---   },
--- }
-
 return {
   {
-    "rebelot/kanagawa.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme kanagawa-dragon")
-
-      -- Set transparent background
-      local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
-      for _, group in ipairs(hl_groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
-      end
-
-      -- Sidebar transparency (for NvimTree, Telescope, NeoTree, etc.)
-      local sidebar_groups = { "NormalNC", "TelescopeNormal", "NvimTreeNormal", "NeoTreeNormal" }
-      for _, group in ipairs(sidebar_groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
-      end
-
-      -- Fix LSP popups (make them transparent or black)
-      vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" }) -- Autocomplete menu
-      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#1a1a1a" }) -- Selected item (dark gray)
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" }) -- Borders of floating windows
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) -- Floating windows (LSP, etc.)
-      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "none" }) -- LSP Hints
-      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "none" }) -- LSP Errors
-      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "none" }) -- LSP Warnings
-      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none" }) -- LSP Info
-
-      -- Make line numbers transparent
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" }) -- Normal line numbers
-      vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none", fg = "#ff9e64" }) -- Highlight current line number (optional: set a color)
-    end,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    opts = {
+      flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+      transparent_background = true, -- Enables transparency
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        notify = false,
+        mini = false,
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
   },
 }
+
+-- return {
+--   {
+--     "rebelot/kanagawa.nvim",
+--     priority = 1000,
+--     config = function()
+--       vim.cmd("colorscheme kanagawa-dragon")
+--
+--       -- Set transparent background
+--       local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
+--       for _, group in ipairs(hl_groups) do
+--         vim.api.nvim_set_hl(0, group, { bg = "none" })
+--       end
+--
+--       -- Sidebar transparency (for NvimTree, Telescope, NeoTree, etc.)
+--       local sidebar_groups = { "NormalNC", "TelescopeNormal", "NvimTreeNormal", "NeoTreeNormal" }
+--       for _, group in ipairs(sidebar_groups) do
+--         vim.api.nvim_set_hl(0, group, { bg = "none" })
+--       end
+--
+--       -- Fix LSP popups (make them transparent or black)
+--       vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" }) -- Autocomplete menu
+--       vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#1a1a1a" }) -- Selected item (dark gray)
+--       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" }) -- Borders of floating windows
+--       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) -- Floating windows (LSP, etc.)
+--       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "none" }) -- LSP Hints
+--       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "none" }) -- LSP Errors
+--       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "none" }) -- LSP Warnings
+--       vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none" }) -- LSP Info
+--
+--       -- Make line numbers transparent
+--       vim.api.nvim_set_hl(0, "LineNr", { bg = "none" }) -- Normal line numbers
+--       vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none", fg = "#ff9e64" }) -- Highlight current line number (optional: set a color)
+--     end,
+--   },
+-- }
