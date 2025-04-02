@@ -13,6 +13,7 @@ return {
       css = { "prettier" },
       scss = { "prettier" },
       less = { "prettier" },
+      rust = { "rustfmt" },
     },
   },
 }
