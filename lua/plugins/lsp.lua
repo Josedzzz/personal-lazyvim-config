@@ -1,19 +1,9 @@
+local nvim_lsp = require("lspconfig")
+
 return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      rust_analyzer = {
-        settings = {
-          ["rust-analyzer"] = {
-            checkOnSave = {
-              command = "clippy",
-            },
-            cargo = {
-              allFeatures = true,
-            },
-          },
-        },
-      },
       tailwindcss = {},
       clangd = {
         capabilities = {
@@ -36,29 +26,24 @@ return {
       },
       pyright = {},
       denols = {
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")(fname)
+        filetypes = { "typescript", "typescriptreact" },
+        root_dir = function(...)
+          return nvim_lsp.util.root_pattern("deno.jsonc", "deno.json")(...)
         end,
       },
-      -- -- Use vtsls ONLY in non-Deno projects
-      -- vtsls = {
-      --   root_dir = function(fname)
-      --     local util = require("lspconfig.util")
-      --     return util.root_pattern("package.json")(fname) and not util.root_pattern("deno.json", "deno.jsonc")(fname)
-      --   end,
-      --   settings = {
-      --     vtsls = {
-      --       autoUseWorkspaceTsdk = true,
-      --       enableMoveToFileCodeAction = true,
-      --       experimental = {
-      --         completion = {
-      --           enableServerSideFuzzyMatch = true,
-      --         },
-      --         maxInlayHintLength = 30,
-      --       },
-      --     },
-      --   },
-      -- },
+
+      vtsls = {
+        root_dir = function()
+          return not vim.fs.root(0, { "deno.json", "deno.jsonc" })
+            and vim.fs.root(0, {
+              "tsconfig.json",
+              "jsconfig.json",
+              "package.json",
+              ".git",
+            })
+        end,
+        single_file_support = false,
+      },
     },
   },
 }
