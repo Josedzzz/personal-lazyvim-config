@@ -8,17 +8,17 @@
 --  },
 -- }
 
-return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-  config = function()
-    require("rose-pine").setup({
-      disable_background = true, -- Enables transparency
-      disable_float_background = true, -- Transparent floating windows
-    })
-    vim.cmd("colorscheme rose-pine")
-  end,
-}
+-- return {
+--   "rose-pine/neovim",
+--   name = "rose-pine",
+--   config = function()
+--     require("rose-pine").setup({
+--       disable_background = true, -- Enables transparency
+--       disable_float_background = true, -- Transparent floating windows
+--     })
+--     vim.cmd("colorscheme rose-pine")
+--   end,
+-- }
 
 -- return {
 --   {
@@ -82,21 +82,21 @@ return {
 --    },
 --  }
 
--- return {
---   {
---     "shaunsingh/nord.nvim",
---     priority = 1000,
---     config = function()
---       vim.cmd("colorscheme nord")
---
---       -- Set transparent background
---       local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
---       for _, group in ipairs(hl_groups) do
---         vim.api.nvim_set_hl(0, group, { bg = "none" })
---       end
---
---       -- Make the cursor line transparent
---       vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
---     end,
---   },
--- }
+return {
+  {
+    "shaunsingh/nord.nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme nord")
+
+      -- Set transparent background
+      local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
+      for _, group in ipairs(hl_groups) do
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
+      end
+
+      -- Make the cursor line transparent
+      vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
+    end,
+  },
+}
