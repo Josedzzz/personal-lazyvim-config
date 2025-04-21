@@ -24,7 +24,11 @@ return {
           clangdFileStatus = true,
         },
       },
-      pyright = {},
+      pyright = {
+        python = {
+          pythonPath = "./.venv/bin/python",
+        },
+      },
       denols = {
         filetypes = { "typescript", "typescriptreact" },
         root_dir = function(...)
