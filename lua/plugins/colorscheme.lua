@@ -128,6 +128,7 @@ return {
         transparent = true,
       })
       vim.cmd.colorscheme("solarized-osaka")
+      vim.opt.cursorline = false
     end,
   },
   {
