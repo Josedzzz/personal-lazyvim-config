@@ -118,23 +118,44 @@
 --   },
 -- }
 
+-- return {
+--   {
+--     "craftzdog/solarized-osaka.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       require("solarized-osaka").setup({
+--         transparent = true,
+--       })
+--       vim.cmd.colorscheme("solarized-osaka")
+--       vim.opt.cursorline = false
+--     end,
+--   },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "solarized-osaka",
+--     },
+--   },
+-- }
+
 return {
   {
-    "craftzdog/solarized-osaka.nvim",
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("solarized-osaka").setup({
-        transparent = true,
+      require("gruvbox").setup({
+        transparent_mode = true, -- equivalente a transparent = true
       })
-      vim.cmd.colorscheme("solarized-osaka")
+      vim.cmd.colorscheme("gruvbox")
       vim.opt.cursorline = false
     end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "gruvbox",
     },
   },
 }
