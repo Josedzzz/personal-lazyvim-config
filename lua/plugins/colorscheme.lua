@@ -8,20 +8,20 @@
 --  },
 -- }
 
-return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-  config = function()
-    require("rose-pine").setup({
-      variant = "main",
-      disable_background = true, -- Enables transparency
-      disable_float_background = true, -- Transparent floating windows
-    })
-    vim.cmd("colorscheme rose-pine")
-    -- Make the cursor line transparent
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
-  end,
-}
+-- return {
+--   "rose-pine/neovim",
+--   name = "rose-pine",
+--   config = function()
+--     require("rose-pine").setup({
+--       variant = "main",
+--       disable_background = true, -- Enables transparency
+--       disable_float_background = true, -- Transparent floating windows
+--     })
+--     vim.cmd("colorscheme rose-pine")
+--     -- Make the cursor line transparent
+--     vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
+--   end,
+-- }
 
 -- return {
 --   {
@@ -160,3 +160,25 @@ return {
 --     },
 --   },
 -- }
+
+return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "lackluster-hack",
+    },
+  },
+  {
+    "folke/tokyonight.nvim",
+    enabled = false,
+  },
+  {
+    "slugbyte/lackluster.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.opt.cursorline = false
+      vim.cmd.colorscheme("lackluster-hack")
+    end,
+  },
+}
