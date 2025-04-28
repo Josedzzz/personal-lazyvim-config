@@ -119,26 +119,26 @@
 --   },
 -- }
 
--- return {
---   {
---     "craftzdog/solarized-osaka.nvim",
---     lazy = false,
---     priority = 1000,
---     config = function()
---       require("solarized-osaka").setup({
---         transparent = true,
---       })
---       vim.cmd.colorscheme("solarized-osaka")
---       vim.opt.cursorline = false
---     end,
---   },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "solarized-osaka",
---     },
---   },
--- }
+return {
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("solarized-osaka").setup({
+        transparent = true,
+      })
+      vim.cmd.colorscheme("solarized-osaka")
+      vim.opt.cursorline = false
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "solarized-osaka",
+    },
+  },
+}
 
 -- return {
 --   {
@@ -161,24 +161,24 @@
 --   },
 -- }
 
-return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "lackluster-hack",
-    },
-  },
-  {
-    "folke/tokyonight.nvim",
-    enabled = false,
-  },
-  {
-    "slugbyte/lackluster.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.opt.cursorline = false
-      vim.cmd.colorscheme("lackluster-hack")
-    end,
-  },
-}
+-- return {
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "lackluster-hack",
+--     },
+--   },
+--   {
+--     "folke/tokyonight.nvim",
+--     enabled = false,
+--   },
+--   {
+--     "slugbyte/lackluster.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       vim.opt.cursorline = false
+--       vim.cmd.colorscheme("lackluster-hack")
+--     end,
+--   },
+-- }
