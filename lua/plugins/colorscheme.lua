@@ -8,20 +8,20 @@
 --  },
 -- }
 
--- return {
---   "rose-pine/neovim",
---   name = "rose-pine",
---   config = function()
---     require("rose-pine").setup({
---       variant = "main",
---       disable_background = true, -- Enables transparency
---       disable_float_background = true, -- Transparent floating windows
---     })
---     vim.cmd("colorscheme rose-pine")
---     -- Make the cursor line transparent
---     vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
---   end,
--- }
+return {
+  "rose-pine/neovim",
+  name = "rose-pine",
+  config = function()
+    require("rose-pine").setup({
+      variant = "main",
+      disable_background = true, -- Enables transparency
+      disable_float_background = true, -- Transparent floating windows
+    })
+    vim.cmd("colorscheme rose-pine")
+    -- Make the cursor line transparent
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
+  end,
+}
 
 -- return {
 --   {
@@ -140,26 +140,26 @@
 --   },
 -- }
 
-return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("gruvbox").setup({
-        transparent_mode = true, -- equivalente a transparent = true
-      })
-      vim.cmd.colorscheme("gruvbox")
-      vim.opt.cursorline = false
-    end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
-}
+-- return {
+--   {
+--     "ellisonleao/gruvbox.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       require("gruvbox").setup({
+--         transparent_mode = true, -- equivalente a transparent = true
+--       })
+--       vim.cmd.colorscheme("gruvbox")
+--       vim.opt.cursorline = false
+--     end,
+--   },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "gruvbox",
+--     },
+--   },
+-- }
 
 -- return {
 --   {
