@@ -86,24 +86,24 @@
 --   },
 -- }
 
-return {
-  {
-    "shaunsingh/nord.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme nord")
-
-      -- Set transparent background
-      local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
-      for _, group in ipairs(hl_groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
-      end
-
-      -- Make the cursor line transparent
-      vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
-    end,
-  },
-}
+-- return {
+--   {
+--     "shaunsingh/nord.nvim",
+--     priority = 1000,
+--     config = function()
+--       vim.cmd("colorscheme nord")
+--
+--       -- Set transparent background
+--       local hl_groups = { "Normal", "NormalFloat", "SignColumn", "StatusLine", "StatusLineNC", "WinSeparator" }
+--       for _, group in ipairs(hl_groups) do
+--         vim.api.nvim_set_hl(0, group, { bg = "none" })
+--       end
+--
+--       -- Make the cursor line transparent
+--       vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
+--     end,
+--   },
+-- }
 
 -- return {
 --   {
@@ -140,26 +140,26 @@ return {
 --   },
 -- }
 
--- return {
---   {
---     "ellisonleao/gruvbox.nvim",
---     lazy = false,
---     priority = 1000,
---     config = function()
---       require("gruvbox").setup({
---         transparent_mode = true, -- equivalente a transparent = true
---       })
---       vim.cmd.colorscheme("gruvbox")
---       vim.opt.cursorline = false
---     end,
---   },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "gruvbox",
---     },
---   },
--- }
+return {
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        transparent_mode = true, -- equivalente a transparent = true
+      })
+      vim.cmd.colorscheme("gruvbox")
+      vim.opt.cursorline = false
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
+}
 
 -- return {
 --   {
