@@ -48,6 +48,20 @@ return {
         end,
         single_file_support = false,
       },
+      gopls = {
+        settings = {
+          gopls = {
+            gofumpt = true,
+            usePlaceholders = true,
+            completeUnimported = true,
+            analyses = {
+              unusedparams = true,
+              unreachable = true,
+            },
+            staticcheck = true,
+          },
+        },
+      },
     },
   },
 }
