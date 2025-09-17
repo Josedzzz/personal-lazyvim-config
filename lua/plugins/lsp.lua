@@ -35,7 +35,6 @@ return {
           return nvim_lsp.util.root_pattern("deno.jsonc", "deno.json")(...)
         end,
       },
-
       vtsls = {
         root_dir = function()
           return not vim.fs.root(0, { "deno.json", "deno.jsonc" })
@@ -59,6 +58,28 @@ return {
               unreachable = true,
             },
             staticcheck = true,
+          },
+        },
+      },
+      -- Moved texlab inside the servers table
+      texlab = {
+        settings = {
+          texlab = {
+            build = {
+              executable = "latexmk",
+              args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+              onSave = true,
+            },
+            forwardSearch = {
+              executable = "open",
+              args = { "-a", "Skim", "%p" },
+            },
+            auxDirectory = ".",
+            bibtexFormatter = "texlab",
+            chktex = {
+              onOpenAndSave = true,
+              onEdit = false,
+            },
           },
         },
       },
